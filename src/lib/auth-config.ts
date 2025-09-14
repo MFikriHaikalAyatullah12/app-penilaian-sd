@@ -1,7 +1,7 @@
 import { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import bcrypt from 'bcrypt'
 import { prisma } from '@/lib/prisma'
-import { verifyPassword } from '@/lib/auth'
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -26,7 +26,7 @@ export const authOptions: AuthOptions = {
           return null
         }
 
-        const isPasswordValid = await verifyPassword(credentials.password, user.password)
+        const isPasswordValid = await bcrypt.compare(credentials.password, user.password)
 
         if (!isPasswordValid) {
           return null
@@ -61,5 +61,6 @@ export const authOptions: AuthOptions = {
   },
   pages: {
     signIn: '/login',
-  }
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 }
