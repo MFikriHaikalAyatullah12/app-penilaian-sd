@@ -1,4 +1,4 @@
-// File: D:\FILE FIKRI\penilaian sd\src\app\layout.tsx
+// File: /workspaces/app-penilaian-sd/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

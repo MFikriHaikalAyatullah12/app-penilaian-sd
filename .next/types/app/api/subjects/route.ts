@@ -1,4 +1,4 @@
-// File: D:\FILE FIKRI\penilaian sd\src\app\api\subjects\route.ts
+// File: /workspaces/app-penilaian-sd/src/app/api/subjects/route.ts
 import * as entry from '../../../../../src/app/api/subjects/route.js'
 import type { NextRequest } from 'next/server.js'
 

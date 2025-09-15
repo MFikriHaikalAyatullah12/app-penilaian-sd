@@ -1,4 +1,4 @@
-// File: D:\FILE FIKRI\penilaian sd\src\app\grades\page.tsx
+// File: /workspaces/app-penilaian-sd/src/app/grades/page.tsx
 import * as entry from '../../../../src/app/grades/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
