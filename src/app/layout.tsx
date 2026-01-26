@@ -6,8 +6,8 @@ import Providers from '@/components/Providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Aplikasi Penilaian Guru SD',
-  description: 'Aplikasi untuk membantu guru SD dalam mengelola penilaian siswa',
+  title: 'UPT SD Negeri 117 Inpres Bontomangape - Aplikasi Penilaian',
+  description: 'Aplikasi penilaian siswa UPT SD Negeri 117 Inpres Bontomangape',
 }
 
 export default function RootLayout({

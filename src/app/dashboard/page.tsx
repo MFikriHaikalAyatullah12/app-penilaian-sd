@@ -142,79 +142,79 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">
+      <div className="max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
+        <div className="py-4 sm:py-6">
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Dashboard Kelas {session.user?.assignedClass}
             </h1>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-sm sm:text-base text-gray-600">
               Selamat datang, {session.user?.name}! Kelola data siswa dan nilai di dashboard ini.
             </p>
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8">
             <Card>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600">
+              <div className="text-center py-4 sm:py-6">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600">
                   {stats?.totalStudents || 0}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Total Siswa</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Total Siswa</div>
               </div>
             </Card>
             
             <Card>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600">
+              <div className="text-center py-4 sm:py-6">
+                <div className="text-2xl sm:text-3xl font-bold text-green-600">
                   {stats?.totalGrades || 0}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Total Nilai</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Total Nilai</div>
               </div>
             </Card>
             
             <Card>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">
+              <div className="text-center py-4 sm:py-6">
+                <div className="text-2xl sm:text-3xl font-bold text-purple-600">
                   {stats?.subjects?.length || 0}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Mata Pelajaran</div>
+                <div className="text-xs sm:text-sm text-gray-600 mt-1">Mata Pelajaran</div>
               </div>
             </Card>
           </div>
 
           {/* Quick Actions */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <Card>
               <CardHeader title="Aksi Cepat" />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 <Link href="/students" className="block">
-                  <div className="group p-6 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-lg border border-blue-200 transition-all duration-200 hover:shadow-md cursor-pointer">
+                  <div className="group p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-lg border border-blue-200 transition-all duration-200 hover:shadow-md cursor-pointer">
                     <div className="flex items-center space-x-3">
-                      <div className="p-3 bg-blue-500 rounded-lg group-hover:bg-blue-600 transition-colors">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="p-2 sm:p-3 bg-blue-500 rounded-lg group-hover:bg-blue-600 transition-colors">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 group-hover:text-blue-700">Kelola Data Siswa</h3>
-                        <p className="text-sm text-gray-600">Tambah, edit, hapus data siswa</p>
+                        <h3 className="text-sm sm:text-base font-semibold text-gray-900 group-hover:text-blue-700">Kelola Data Siswa</h3>
+                        <p className="text-xs sm:text-sm text-gray-600">Tambah, edit, hapus data siswa</p>
                       </div>
                     </div>
                   </div>
                 </Link>
 
                 <Link href="/grades" className="block">
-                  <div className="group p-6 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-lg border border-green-200 transition-all duration-200 hover:shadow-md cursor-pointer">
+                  <div className="group p-4 sm:p-6 bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-lg border border-green-200 transition-all duration-200 hover:shadow-md cursor-pointer">
                     <div className="flex items-center space-x-3">
-                      <div className="p-3 bg-green-500 rounded-lg group-hover:bg-green-600 transition-colors">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="p-2 sm:p-3 bg-green-500 rounded-lg group-hover:bg-green-600 transition-colors">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                         </svg>
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 group-hover:text-green-700">Input & Kelola Nilai</h3>
-                        <p className="text-sm text-gray-600">Input nilai dan kelola penilaian</p>
+                        <h3 className="text-sm sm:text-base font-semibold text-gray-900 group-hover:text-green-700">Input & Kelola Nilai</h3>
+                        <p className="text-xs sm:text-sm text-gray-600">Input nilai dan kelola penilaian</p>
                       </div>
                     </div>
                   </div>
@@ -222,17 +222,17 @@ export default function DashboardPage() {
 
                 <div 
                   onClick={handleExportExcel}
-                  className="group p-6 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-lg border border-purple-200 transition-all duration-200 hover:shadow-md cursor-pointer"
+                  className="group p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-lg border border-purple-200 transition-all duration-200 hover:shadow-md cursor-pointer"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="p-3 bg-purple-500 rounded-lg group-hover:bg-purple-600 transition-colors">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-2 sm:p-3 bg-purple-500 rounded-lg group-hover:bg-purple-600 transition-colors">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 group-hover:text-purple-700">Export ke Excel</h3>
-                      <p className="text-sm text-gray-600">Download data dalam format Excel</p>
+                      <h3 className="text-sm sm:text-base font-semibold text-gray-900 group-hover:text-purple-700">Export ke Excel</h3>
+                      <p className="text-xs sm:text-sm text-gray-600">Download data dalam format Excel</p>
                     </div>
                   </div>
                 </div>

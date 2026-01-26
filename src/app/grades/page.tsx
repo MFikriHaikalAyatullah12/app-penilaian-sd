@@ -487,42 +487,42 @@ export default function GradesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex justify-between items-center mb-8">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-bold" style={{ color: '#111827' }}>
+            <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: '#111827' }}>
               Input Nilai Kelas {session.user?.assignedClass}
             </h1>
-            <p style={{ color: '#6b7280' }}>
+            <p className="text-sm sm:text-base" style={{ color: '#6b7280' }}>
               Total: {filteredGrades.length} nilai
             </p>
           </div>
-          <div className="space-x-3">
-            <Button variant="outline" onClick={exportToExcel}>
-              Export Excel
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            <Button variant="outline" onClick={exportToExcel} className="w-full sm:w-auto text-sm">
+              📊 Export Excel
             </Button>
-            <Button variant="outline" onClick={openBulkModal}>
-              Nilai Sama Semua
+            <Button variant="outline" onClick={openBulkModal} className="w-full sm:w-auto text-sm">
+              📝 Nilai Sama Semua
             </Button>
-            <Button onClick={() => openModal()}>
-              Input Nilai
+            <Button onClick={() => openModal()} className="w-full sm:w-auto text-sm">
+              ➕ Input Nilai
             </Button>
           </div>
         </div>
 
         {/* Filters */}
-        <Card className="mb-6">
-          <div className="p-4">
-            <h3 className="text-lg font-medium mb-4" style={{ color: '#111827' }}>Filter Data</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card className="mb-4 sm:mb-6">
+          <div className="p-3 sm:p-4">
+            <h3 className="text-base sm:text-lg font-medium mb-3 sm:mb-4" style={{ color: '#111827' }}>📋 Filter Data</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2" style={{ color: '#374151' }}>
                   Filter Siswa
                 </label>
                 <select
                   value={filterStudent}
                   onChange={(e) => setFilterStudent(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2.5 sm:px-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   style={{ color: '#111827', backgroundColor: '#ffffff' }}
                 >
                   <option value="">Semua Siswa</option>
@@ -534,13 +534,13 @@ export default function GradesPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2" style={{ color: '#374151' }}>
                   Mata Pelajaran
                 </label>
                 <select
                   value={filterSubject}
                   onChange={(e) => setFilterSubject(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2.5 sm:px-3 py-2 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   style={{ color: '#111827', backgroundColor: '#ffffff' }}
                 >
                   <option value="">Semua Mata Pelajaran</option>
@@ -562,26 +562,28 @@ export default function GradesPage() {
           </div>
         ) : (
           <Card>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto -mx-3 sm:mx-0">
+              <div className="inline-block min-w-full align-middle">
+                <div className="overflow-hidden">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Siswa
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="hidden sm:table-cell px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Mata Pelajaran
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Tugas
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-center text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Nilai
                     </th>
-                    <th className="px-6 py-3 text-center text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="hidden sm:table-cell px-6 py-3 text-center text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Persentase
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
+                    <th className="px-3 sm:px-6 py-2 sm:py-3 text-right text-xs font-medium uppercase tracking-wider" style={{ color: '#374151' }}>
                       Aksi
                     </th>
                   </tr>
@@ -607,33 +609,45 @@ export default function GradesPage() {
                       const percentage = getPercentage(grade.score, grade.maxScore)
                       return (
                         <tr key={grade.id} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm font-medium" style={{ color: '#111827' }}>
+                          <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                            <div className="text-xs sm:text-sm font-medium" style={{ color: '#111827' }}>
                               {grade.student.name}
                             </div>
                             {grade.student.nisn && (
                               <div className="text-xs" style={{ color: '#6b7280' }}>
-                                NISN: {grade.student.nisn}
+                                {grade.student.nisn}
                               </div>
                             )}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm" style={{ color: '#374151' }}>
+                          <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm" style={{ color: '#374151' }}>
                             {grade.subject.name}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm font-medium" style={{ color: '#111827' }}>
+                          <td className="px-3 sm:px-6 py-3 sm:py-4">
+                            <div className="text-xs sm:text-sm font-medium" style={{ color: '#111827' }}>
                               {grade.taskName}
                             </div>
+                            <div className="text-xs sm:hidden" style={{ color: '#6b7280' }}>
+                              {grade.subject.name}
+                            </div>
                             <div className="text-xs" style={{ color: '#6b7280' }}>
-                              {new Date(grade.date).toLocaleDateString('id-ID')}
+                              {new Date(grade.date).toLocaleDateString('id-ID', { day: '2-digit', month: 'short' })}
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-center">
-                            <div className="text-sm font-medium" style={{ color: '#111827' }}>
-                              {grade.score} / {grade.maxScore}
+                          <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-center">
+                            <div className="text-xs sm:text-sm font-medium" style={{ color: '#111827' }}>
+                              {grade.score}/{grade.maxScore}
                             </div>
+                            <span 
+                              className="sm:hidden inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium mt-1"
+                              style={{ 
+                                backgroundColor: getGradeColor(percentage) + '20',
+                                color: getGradeColor(percentage)
+                              }}
+                            >
+                              {percentage}%
+                            </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-center">
+                          <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-center">
                             <span 
                               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
                               style={{ 
@@ -644,21 +658,23 @@ export default function GradesPage() {
                               {percentage}%
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <div className="space-x-2">
+                          <td className="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <div className="flex flex-col sm:flex-row gap-1 sm:gap-2 sm:justify-end">
                               <Button
                                 variant="outline"
                                 size="sm"
                                 onClick={() => openModal(grade)}
+                                className="text-xs px-2 py-1"
                               >
-                                Edit
+                                ✏️
                               </Button>
                               <Button
                                 variant="danger"
                                 size="sm"
                                 onClick={() => deleteGrade(grade)}
+                                className="text-xs px-2 py-1"
                               >
-                                Hapus
+                                🗑️
                               </Button>
                             </div>
                           </td>
@@ -668,6 +684,8 @@ export default function GradesPage() {
                   )}
                 </tbody>
               </table>
+                </div>
+              </div>
             </div>
           </Card>
         )}

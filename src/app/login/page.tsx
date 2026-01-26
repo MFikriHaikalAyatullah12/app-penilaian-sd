@@ -88,38 +88,54 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: '#111827' }}>
-            Aplikasi Penilaian SD
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center p-3 py-4">
+      <div className="w-full max-w-md">
+        {/* Logo/Icon */}
+        <div className="text-center mb-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-lg mb-2">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h1 className="text-xl sm:text-2xl font-bold text-white mb-1">
+            UPT SD Negeri 117 Inpres Bontomangape
           </h1>
-          <p style={{ color: '#6b7280' }}>
+          <p className="text-sm sm:text-base font-medium text-blue-100">
+            Aplikasi Penilaian SD
+          </p>
+          <p className="text-xs text-blue-200 mt-1">
             Masuk ke akun Anda untuk mengakses sistem penilaian
           </p>
         </div>
 
-        <Card>
-          <form onSubmit={onSubmit} className="space-y-6">
+        {/* Login Card */}
+        <div className="bg-white rounded-2xl shadow-2xl p-5 sm:p-6">
+          <form onSubmit={onSubmit} className="space-y-4">
 
             {/* Email */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1.5 text-gray-700">
                 Email
               </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="Masukkan email Anda"
-                className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.email ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
-                `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                  </svg>
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="nama@email.com"
+                  className={`
+                    w-full pl-9 pr-3 py-2.5 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                    ${errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                    text-gray-900 placeholder-gray-400
+                  `}
+                />
+              </div>
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
                   {errors.email}
@@ -129,22 +145,28 @@ export default function LoginPage() {
 
             {/* Password */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1.5 text-gray-700">
                 Password
               </label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                placeholder="Masukkan password"
-                className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.password ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
-                `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  placeholder="••••••••"
+                  className={`
+                    w-full pl-9 pr-3 py-2.5 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                    ${errors.password ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                    text-gray-900 placeholder-gray-400
+                  `}
+                />
+              </div>
               {errors.password && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
                   {errors.password}
@@ -152,32 +174,40 @@ export default function LoginPage() {
               )}
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full" 
+            <button
+              type="submit"
               disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2.5 px-4 text-sm rounded-xl font-semibold shadow-lg hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              {loading ? 'Memproses...' : 'Masuk'}
-            </Button>
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Memproses...
+                </span>
+              ) : 'Masuk'}
+            </button>
 
-            <div className="text-center">
-              <p style={{ color: '#6b7280' }}>
+            <div className="text-center pt-1">
+              <p className="text-gray-600 text-xs sm:text-sm">
                 Belum punya akun?{' '}
                 <Link 
                   href="/register" 
-                  className="font-medium text-blue-600 hover:text-blue-500"
-                  style={{ color: '#2563eb' }}
+                  className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                 >
                   Daftar di sini
                 </Link>
               </p>
             </div>
           </form>
-        </Card>
+        </div>
 
-        <div className="text-center text-sm" style={{ color: '#6b7280' }}>
-          <p>Sistem Penilaian Guru Sekolah Dasar</p>
-          <p>© 2025 - Dibuat untuk memudahkan proses penilaian</p>
+        {/* Footer */}
+        <div className="text-center mt-4 text-xs sm:text-sm text-white/80">
+          <p className="font-medium">UPT SD Negeri 117 Inpres Bontomangape</p>
+          <p className="mt-0.5">© 2025 - Sistem Penilaian Guru Sekolah Dasar</p>
         </div>
       </div>
     </div>

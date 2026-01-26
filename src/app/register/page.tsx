@@ -117,23 +117,33 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: '#111827' }}>
-            Daftar Akun Baru
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center p-3 py-3">
+      <div className="w-full max-w-md">
+        {/* Logo/Icon */}
+        <div className="text-center mb-3">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg mb-2">
+            <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h1 className="text-lg sm:text-xl font-bold text-white mb-1">
+            UPT SD Negeri 117 Inpres Bontomangape
           </h1>
-          <p style={{ color: '#6b7280' }}>
+          <p className="text-sm font-medium text-blue-100">
+            Daftar Akun Baru
+          </p>
+          <p className="text-xs text-blue-200 mt-0.5">
             Buat akun untuk mengakses sistem penilaian
           </p>
         </div>
 
-        <Card>
-          <form onSubmit={onSubmit} className="space-y-6">
+        {/* Register Card */}
+        <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-5">
+          <form onSubmit={onSubmit} className="space-y-3">
 
             {/* Nama Lengkap */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1 text-gray-700">
                 Nama Lengkap
               </label>
               <input
@@ -141,13 +151,12 @@ export default function RegisterPage() {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Masukkan nama lengkap Anda"
+                placeholder="Nama lengkap"
                 className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.name ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
+                  w-full px-3 py-2 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                  ${errors.name ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                  text-gray-900 placeholder-gray-400
                 `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
               />
               {errors.name && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
@@ -158,7 +167,7 @@ export default function RegisterPage() {
 
             {/* Email */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1 text-gray-700">
                 Email
               </label>
               <input
@@ -166,13 +175,12 @@ export default function RegisterPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Masukkan email Anda"
+                placeholder="nama@email.com"
                 className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.email ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
+                  w-full px-3 py-2 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                  ${errors.email ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                  text-gray-900 placeholder-gray-400
                 `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
@@ -183,7 +191,7 @@ export default function RegisterPage() {
 
             {/* Kelas yang Diajar */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1 text-gray-700">
                 Kelas yang Diajar
               </label>
               <select
@@ -191,19 +199,18 @@ export default function RegisterPage() {
                 value={formData.assignedClass}
                 onChange={handleInputChange}
                 className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.assignedClass ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 bg-white
+                  w-full px-3 py-2 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                  ${errors.assignedClass ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                  text-gray-900
                 `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
               >
-                <option value={0} style={{ color: '#111827' }}>Pilih Kelas</option>
-                <option value={1} style={{ color: '#111827' }}>Kelas 1</option>
-                <option value={2} style={{ color: '#111827' }}>Kelas 2</option>
-                <option value={3} style={{ color: '#111827' }}>Kelas 3</option>
-                <option value={4} style={{ color: '#111827' }}>Kelas 4</option>
-                <option value={5} style={{ color: '#111827' }}>Kelas 5</option>
-                <option value={6} style={{ color: '#111827' }}>Kelas 6</option>
+                <option value={0}>Pilih Kelas</option>
+                <option value={1}>Kelas 1</option>
+                <option value={2}>Kelas 2</option>
+                <option value={3}>Kelas 3</option>
+                <option value={4}>Kelas 4</option>
+                <option value={5}>Kelas 5</option>
+                <option value={6}>Kelas 6</option>
               </select>
               {errors.assignedClass && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
@@ -214,7 +221,7 @@ export default function RegisterPage() {
 
             {/* Password */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1 text-gray-700">
                 Password
               </label>
               <input
@@ -222,13 +229,12 @@ export default function RegisterPage() {
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                placeholder="Masukkan password"
+                placeholder="••••••••"
                 className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.password ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
+                  w-full px-3 py-2 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                  ${errors.password ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                  text-gray-900 placeholder-gray-400
                 `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
               />
               {errors.password && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
@@ -239,7 +245,7 @@ export default function RegisterPage() {
 
             {/* Konfirmasi Password */}
             <div className="w-full">
-              <label className="block text-sm font-medium mb-2" style={{ color: '#374151' }}>
+              <label className="block text-xs sm:text-sm font-semibold mb-1 text-gray-700">
                 Konfirmasi Password
               </label>
               <input
@@ -247,13 +253,12 @@ export default function RegisterPage() {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
-                placeholder="Konfirmasi password"
+                placeholder="••••••••"
                 className={`
-                  w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                  ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'}
-                  text-gray-900 placeholder-gray-500 bg-white
+                  w-full px-3 py-2 text-sm border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all
+                  ${errors.confirmPassword ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50 focus:bg-white'}
+                  text-gray-900 placeholder-gray-400
                 `}
-                style={{ color: '#111827', backgroundColor: '#ffffff' }}
               />
               {errors.confirmPassword && (
                 <p className="mt-1 text-sm text-red-600" style={{ color: '#dc2626' }}>
@@ -262,28 +267,41 @@ export default function RegisterPage() {
               )}
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full" 
+            <button
+              type="submit"
               disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2.5 px-4 text-sm rounded-xl font-semibold shadow-lg hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              {loading ? 'Memproses...' : 'Daftar'}
-            </Button>
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Memproses...
+                </span>
+              ) : 'Daftar Sekarang'}
+            </button>
 
-            <div className="text-center">
-              <p style={{ color: '#6b7280' }}>
+            <div className="text-center pt-1">
+              <p className="text-gray-600 text-xs sm:text-sm">
                 Sudah punya akun?{' '}
                 <Link 
                   href="/login" 
-                  className="font-medium text-blue-600 hover:text-blue-500"
-                  style={{ color: '#2563eb' }}
+                  className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
                 >
                   Masuk di sini
                 </Link>
               </p>
             </div>
           </form>
-        </Card>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-3 text-xs sm:text-sm text-white/80">
+          <p className="font-medium">UPT SD Negeri 117 Inpres Bontomangape</p>
+          <p className="mt-0.5">© 2025 - Sistem Penilaian Guru Sekolah Dasar</p>
+        </div>
       </div>
     </div>
   )

@@ -3,6 +3,29 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['bcrypt'],
   },
+  // Disable cache for auth pages
+  async headers() {
+    return [
+      {
+        source: '/login',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate, max-age=0',
+          },
+        ],
+      },
+      {
+        source: '/register',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate, max-age=0',
+          },
+        ],
+      },
+    ]
+  },
   // Optimize for production build
   swcMinify: true,
   compiler: {
